@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { platforms, rows, notes } from "@/data/platforms";
+import { Simulator } from "@/components/Simulator";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -66,6 +67,7 @@ function Index() {
           </div>
           <div className="hidden sm:flex items-center gap-6 text-sm text-ink-soft">
             <a href="#comparativa" className="hover:text-ink transition-colors">Comparativa</a>
+            <a href="#simulador" className="hover:text-ink transition-colors">Simulador</a>
             <a href="#notas" className="hover:text-ink transition-colors">Notas</a>
             <span className="font-mono text-xs bg-surface-2 px-2 py-1 rounded">jul 2026</span>
           </div>
@@ -111,6 +113,9 @@ function Index() {
           ))}
         </div>
       </section>
+
+      {/* Simulator */}
+      <Simulator />
 
       {/* Comparison */}
       <section id="comparativa" className="mx-auto max-w-7xl px-6 pb-20">
