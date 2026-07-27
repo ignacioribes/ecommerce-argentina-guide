@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { platforms, rows, notes } from "@/data/platforms";
+import { Simulator } from "@/components/Simulator";
 
 export const Route = createFileRoute("/")({
   head: () => ({
