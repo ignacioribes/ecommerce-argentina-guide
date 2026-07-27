@@ -246,12 +246,19 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-hairline">
-        <div className="mx-auto max-w-7xl px-6 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 text-sm text-ink-soft">
-          <p>
-            Datos tomados de los sitios oficiales de cada plataforma en su versión Argentina.
-          </p>
-          <p className="font-mono text-xs text-white/50">Actualizado · julio 2026</p>
+      <footer className="border-t border-hairline bg-surface/20">
+        <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col gap-6 text-sm text-ink-soft">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-white/10 pb-6">
+            <p>
+              Datos tomados de los sitios oficiales de cada plataforma en su versión Argentina.
+            </p>
+            <p className="font-mono text-xs text-white/50 shrink-0">Actualizado · julio 2026</p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-4.5 text-xs leading-relaxed text-white/70">
+            <strong className="font-semibold text-white">Descargo de responsabilidad:</strong>{" "}
+            El propósito de este proyecto es difundir e informar sobre distintas opciones para implementar una tienda on-line o ecommerce en Argentina pero no pretende en ningún caso asesorar o recomendar sobre las alternativas representadas.
+          </div>
         </div>
       </footer>
     </main>
