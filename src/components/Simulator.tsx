@@ -87,7 +87,7 @@ export function Simulator() {
                 <span className="h-1.5 w-1.5 rounded-full bg-accent-3" />
                 Simulador de costos
               </span>
-              <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold text-ink">
+              <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold text-white">
                 ¿Cuánto te sale vender por mes?
               </h2>
               <p className="mt-2 text-ink-soft max-w-xl">
@@ -95,14 +95,14 @@ export function Simulator() {
               </p>
             </div>
             {bestOverall && revenue > 0 && (
-              <div className="rounded-2xl bg-surface-2 p-4 min-w-[220px]">
-                <p className="text-[11px] font-mono uppercase tracking-widest text-ink-soft">
+              <div className="rounded-2xl bg-surface-2 border border-hairline p-4 min-w-[220px]">
+                <p className="text-[11px] font-mono uppercase tracking-widest text-accent-1 font-bold">
                   Más conveniente
                 </p>
-                <p className="mt-1 font-display text-xl font-semibold text-ink">
+                <p className="mt-1 font-display text-xl font-semibold text-white">
                   {bestOverall.platform.name} · {bestOverall.plan.name}
                 </p>
-                <p className="mt-1 text-sm text-ink-soft">
+                <p className="mt-1 text-sm text-ink-soft font-mono">
                   {formatARS(bestOverall.totalARS)} / mes
                 </p>
               </div>
@@ -117,7 +117,7 @@ export function Simulator() {
               <span className="text-[11px] font-mono uppercase tracking-widest text-ink-soft">
                 Facturación mensual (ARS)
               </span>
-              <div className="mt-2 flex items-center rounded-xl border border-hairline bg-card focus-within:ring-2 focus-within:ring-ring">
+              <div className="mt-2 flex items-center rounded-xl border border-hairline bg-card focus-within:ring-2 focus-within:ring-accent-1">
                 <span className="pl-4 text-ink-soft">$</span>
                 <input
                   type="number"
@@ -126,7 +126,7 @@ export function Simulator() {
                   max={1_000_000_000}
                   value={revenueStr}
                   onChange={(e) => setRevenueStr(e.target.value)}
-                  className="w-full bg-transparent px-2 py-3 text-lg font-medium text-ink focus:outline-none"
+                  className="w-full bg-transparent px-2 py-3 text-lg font-medium text-white focus:outline-none"
                 />
               </div>
             </label>
@@ -135,7 +135,7 @@ export function Simulator() {
               <span className="text-[11px] font-mono uppercase tracking-widest text-ink-soft">
                 Cotización USD (ARS)
               </span>
-              <div className="mt-2 flex items-center rounded-xl border border-hairline bg-card focus-within:ring-2 focus-within:ring-ring">
+              <div className="mt-2 flex items-center rounded-xl border border-hairline bg-card focus-within:ring-2 focus-within:ring-accent-1">
                 <span className="pl-4 text-ink-soft">$</span>
                 <input
                   type="number"
@@ -144,7 +144,7 @@ export function Simulator() {
                   max={100000}
                   value={usdRateStr}
                   onChange={(e) => setUsdRateStr(e.target.value)}
-                  className="w-full bg-transparent px-2 py-3 text-lg font-medium text-ink focus:outline-none"
+                  className="w-full bg-transparent px-2 py-3 text-lg font-medium text-white focus:outline-none"
                 />
               </div>
             </label>
@@ -160,8 +160,8 @@ export function Simulator() {
                     onClick={() => setGateway(g)}
                     className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       gateway === g
-                        ? "bg-ink text-background"
-                        : "text-ink-soft hover:text-ink"
+                        ? "bg-white text-background font-bold shadow-sm"
+                        : "text-ink-soft hover:text-white"
                     }`}
                   >
                     {g === "own" ? "Propio" : "Externo"}
@@ -181,8 +181,8 @@ export function Simulator() {
                     onClick={() => setBilling(b)}
                     className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       billing === b
-                        ? "bg-ink text-background"
-                        : "text-ink-soft hover:text-ink"
+                        ? "bg-white text-background font-bold shadow-sm"
+                        : "text-ink-soft hover:text-white"
                     }`}
                   >
                     {b === "monthly" ? "Mensual" : "Anual"}
@@ -198,17 +198,17 @@ export function Simulator() {
           {results.map(({ platform, plans, cheapest }) => (
             <div
               key={platform.id}
-              className="rounded-2xl border border-hairline bg-background flex flex-col"
+              className="rounded-2xl border border-hairline bg-background flex flex-col overflow-hidden"
             >
-              <div className="p-5 border-b border-hairline flex items-center justify-between">
+              <div className="p-5 border-b border-hairline flex items-center justify-between bg-surface-2/40">
                 <div className="flex items-center gap-2">
                   <span className={`h-2 w-2 rounded-full ${accentClass[platform.accent]}`} />
-                  <h3 className="font-display text-xl font-semibold text-ink">
+                  <h3 className="font-display text-xl font-semibold text-white">
                     {platform.name}
                   </h3>
                 </div>
                 {cheapest && (
-                  <span className={`font-mono text-[10px] uppercase tracking-widest ${accentText[platform.accent]}`}>
+                  <span className={`font-mono text-[10px] uppercase tracking-widest font-semibold ${accentText[platform.accent]}`}>
                     desde {formatARS(cheapest.totalARS)}
                   </span>
                 )}
@@ -222,32 +222,32 @@ export function Simulator() {
                     <li key={plan.id} className={`p-5 ${isBestOverall ? "bg-surface-2/60" : ""}`}>
                       <div className="flex items-baseline justify-between gap-3">
                         <div className="flex items-center gap-2">
-                          <span className="font-medium text-ink">{plan.name}</span>
+                          <span className="font-medium text-white">{plan.name}</span>
                           {isBestOverall && (
-                            <span className="rounded-full bg-ink text-background text-[10px] font-mono uppercase tracking-widest px-2 py-0.5">
+                            <span className="rounded-full bg-accent-1 text-background text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-0.5">
                               Mejor
                             </span>
                           )}
                           {isCheapest && !isBestOverall && (
-                            <span className={`rounded-full text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 border ${accentText[platform.accent]}`} style={{ borderColor: "currentColor" }}>
+                            <span className={`rounded-full text-[10px] font-mono font-semibold uppercase tracking-widest px-2 py-0.5 border ${accentText[platform.accent]}`} style={{ borderColor: "currentColor" }}>
                               Óptimo
                             </span>
                           )}
                         </div>
-                        <span className="font-display text-lg font-semibold text-ink tabular-nums">
+                        <span className="font-display text-lg font-semibold text-white tabular-nums">
                           {formatARS(totalARS)}
                         </span>
                       </div>
                       <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-ink-soft">
                         <dt>Plan</dt>
-                        <dd className="text-right tabular-nums">{formatARS(planARS)}</dd>
+                        <dd className="text-right tabular-nums text-white/90">{formatARS(planARS)}</dd>
                         <dt>
                           Comisión{" "}
                           <span className="font-mono">
                             ({(feeRate * 100).toFixed(feeRate < 0.01 ? 2 : 1)}%)
                           </span>
                         </dt>
-                        <dd className="text-right tabular-nums">
+                        <dd className="text-right tabular-nums text-white/90">
                           {commissionARS === 0 ? "—" : formatARS(commissionARS)}
                         </dd>
                       </dl>
