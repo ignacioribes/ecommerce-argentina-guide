@@ -114,6 +114,9 @@ function Index() {
         </div>
       </section>
 
+      {/* Simulator */}
+      <Simulator />
+
       {/* Comparison */}
       <section id="comparativa" className="mx-auto max-w-7xl px-6 pb-20">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
