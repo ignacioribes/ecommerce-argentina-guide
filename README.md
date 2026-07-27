@@ -6,7 +6,7 @@ Guía comparativa e interactiva de plataformas de e-commerce en Argentina (Tiend
 
 - **Tabla comparativa en tiempo real**: Compará precios, comisiones, funcionalidades, medios de pago y envíos lado a lado.
 - **Simulador interactivo de costos**: Calculá el costo mensual real (plan + comisiones) ingresando tu facturación proyectada y cotización del dólar.
-- **Modo Oscuro exclusivo**: Interfaz moderna de alto contraste inspirada en la identidad de ComparaTiendas.ar.
+- **Modo Oscuro exclusivo**: Interfaz moderna de alto contraste inspirada en la identidad de ComparaTiendas.com.ar.
 - **Letra chica y detalles clave**: Información clara y transparente sobre costos ocultos o adicionales.
 
 ## 🛠️ Tecnologías utilizadas
