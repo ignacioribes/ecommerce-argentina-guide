@@ -1,4 +1,4 @@
-# ComparaTiendas.ar 🇦🇷
+# ComparaTiendas.com.ar 🇦🇷
 
 Guía comparativa e interactiva de plataformas de e-commerce en Argentina (Tiendanube, Shopify, Empretienda).
 

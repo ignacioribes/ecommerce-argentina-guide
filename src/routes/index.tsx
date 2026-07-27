@@ -7,13 +7,13 @@ import { Simulator } from "@/components/Simulator";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ComparaTiendas.ar - Comparativa de plataformas de e-commerce en Argentina 2026" },
+      { title: "ComparaTiendas.com.ar - Comparativa de plataformas de e-commerce en Argentina 2026" },
       {
         name: "description",
         content:
           "Compará Tiendanube, Shopify y Empretienda: precios, comisiones, soporte, IA, envíos y más. Guía actualizada a julio 2026.",
       },
-      { property: "og:title", content: "ComparaTiendas.ar - Comparativa e-commerce en Argentina" },
+      { property: "og:title", content: "ComparaTiendas.com.ar - Comparativa e-commerce en Argentina" },
       {
         property: "og:description",
         content:
