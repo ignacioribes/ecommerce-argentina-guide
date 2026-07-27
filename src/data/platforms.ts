@@ -171,7 +171,7 @@ export const rows: Row[] = [
     group: "Producto",
     label: "Productos digitales",
     values: {
-      tiendanube: "No destacado en el pricing público",
+      tiendanube: "Vía apps",
       shopify: "Vía apps",
       empretienda: "Incluido: descarga automática por link",
     },
