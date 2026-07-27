@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Fragment, useMemo, useState } from "react";
+import { Table, Calculator } from "lucide-react";
 import { platforms, rows, notes } from "@/data/platforms";
 import { Simulator } from "@/components/Simulator";
 
@@ -97,6 +98,24 @@ function Index() {
             Precios, comisiones, soporte y funcionalidades de las plataformas más usadas del país,
             puestas al lado una de la otra. Sin humo, con las letras chicas incluidas.
           </p>
+
+          {/* CTA Buttons */}
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href="#comparativa"
+              className="inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-[oklch(0.72_0.17_195)] to-[oklch(0.78_0.19_140)] px-6 py-3.5 text-sm font-bold text-[oklch(0.12_0.02_255)] shadow-lg shadow-[oklch(0.72_0.17_195/0.25)] transition-all hover:scale-[1.02] hover:shadow-xl active:scale-[0.98]"
+            >
+              <Table className="h-4 w-4" />
+              <span>Tabla comparativa</span>
+            </a>
+            <a
+              href="#simulador"
+              className="inline-flex items-center gap-2.5 rounded-xl border border-white/20 bg-surface-2/80 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-surface-2 hover:border-white/40 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <Calculator className="h-4 w-4 text-accent-3" />
+              <span>Simulá costos</span>
+            </a>
+          </div>
         </div>
 
         {/* Platform cards */}
