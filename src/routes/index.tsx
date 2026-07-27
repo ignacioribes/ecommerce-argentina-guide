@@ -142,7 +142,12 @@ function Index() {
                 <span className="text-xs text-ink-soft/80 font-mono">{p.origin}</span>
               </div>
                 <h2 className="mt-4 font-display text-3xl font-semibold text-white">
-                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{p.name}</a>
+                  <button
+                    onClick={() => window.open(p.url, '_blank')}
+                    className="rounded-xl bg-gradient-to-r from-[oklch(0.72_0.17_195)] to-[oklch(0.78_0.19_140)] px-4 py-2 text-white hover:opacity-90 transition"
+                  >
+                    {p.name}
+                  </button>
                 </h2>
                 <p className="mt-2 text-sm text-ink-soft leading-relaxed">{p.tagline}</p>
               <div className={`mt-6 h-1 w-12 rounded-full ${accentClass[p.accent]}`} />
