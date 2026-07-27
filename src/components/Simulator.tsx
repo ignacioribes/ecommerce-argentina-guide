@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { z } from "zod";
+import { ChevronDown, ChevronUp, Calculator } from "lucide-react";
 import { platforms } from "@/data/platforms";
 import { platformPlans, type Plan } from "@/data/plans";
 
@@ -36,6 +37,7 @@ function planPriceARS(plan: Plan, billing: "monthly" | "annual", usdRate: number
 }
 
 export function Simulator() {
+  const [isOpen, setIsOpen] = useState(false);
   const [revenueStr, setRevenueStr] = useState("1500000");
   const [usdRateStr, setUsdRateStr] = useState("1300");
   const [gateway, setGateway] = useState<"own" | "external">("own");
@@ -78,37 +80,59 @@ export function Simulator() {
 
   return (
     <section id="simulador" className="mx-auto max-w-7xl px-6 pb-20">
-      <div className="rounded-3xl border border-hairline bg-card overflow-hidden">
-        {/* Header */}
-        <div className="px-6 md:px-10 py-8 border-b border-hairline">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-ink-soft">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-3" />
-                Simulador de costos
-              </span>
-              <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold text-white">
-                ¿Cuánto te sale vender por mes?
-              </h2>
-              <p className="mt-2 text-ink-soft max-w-xl">
-                Ingresá tu facturación mensual y compará el costo real (plan + comisiones) en cada plataforma.
-              </p>
-            </div>
-            {bestOverall && revenue > 0 && (
-              <div className="rounded-2xl bg-surface-2 border border-hairline p-4 min-w-[220px]">
-                <p className="text-[11px] font-mono uppercase tracking-widest text-accent-1 font-bold">
-                  Más conveniente
-                </p>
-                <p className="mt-1 font-display text-xl font-semibold text-white">
-                  {bestOverall.platform.name} · {bestOverall.plan.name}
-                </p>
-                <p className="mt-1 text-sm text-ink-soft font-mono">
-                  {formatARS(bestOverall.totalARS)} / mes
+      <div className="rounded-3xl border-2 border-white/20 bg-card overflow-hidden shadow-2xl shadow-black/40 transition-all duration-300">
+        {/* Header (Clickable Toggle) */}
+        <div
+          onClick={() => setIsOpen(!isOpen)}
+          className="px-6 md:px-10 py-7 border-b border-white/15 bg-surface-2/40 hover:bg-surface-2/70 transition-colors cursor-pointer select-none"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-2xl bg-accent-1/10 border border-accent-1/30 text-accent-1 mt-1 md:mt-0">
+                <Calculator className="h-6 w-6" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-accent-1 font-bold">
+                    Simulador interactivo
+                  </span>
+                  <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border border-white/20 bg-white/5 text-white/70">
+                    {isOpen ? "Desplegado" : "Pulsá para calcular"}
+                  </span>
+                </div>
+                <h2 className="mt-1 font-display text-2xl md:text-3xl font-semibold text-white flex items-center gap-3">
+                  ¿Cuánto te sale vender por mes?
+                </h2>
+                <p className="mt-1 text-sm text-ink-soft max-w-xl">
+                  Calculá tu costo real (plan + comisiones) según tu facturación mensual proyectada.
                 </p>
               </div>
-            )}
+            </div>
+
+            <div className="flex items-center gap-4 self-end md:self-auto">
+              {!isOpen && bestOverall && revenue > 0 && (
+                <div className="hidden sm:block text-right">
+                  <p className="text-[11px] font-mono uppercase tracking-widest text-accent-1 font-bold">
+                    Más conveniente
+                  </p>
+                  <p className="text-sm font-semibold text-white">
+                    {bestOverall.platform.name} ({formatARS(bestOverall.totalARS)}/mes)
+                  </p>
+                </div>
+              )}
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/20 transition-all shadow-sm"
+              >
+                <span>{isOpen ? "Ocultar" : "Simular costos"}</span>
+                {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              </button>
+            </div>
           </div>
         </div>
+
+        {isOpen && (
+          <div className="animate-in fade-in slide-in-from-top-4 duration-300">
 
         {/* Controls */}
         <div className="px-6 md:px-10 py-8 bg-surface/40 border-b border-hairline">
@@ -269,6 +293,8 @@ export function Simulator() {
           etc.), IVA, retenciones ni la comisión adicional de <em>liberación</em> que Pago Nube
           cobra sobre cada venta.
         </p>
+          </div>
+        )}
       </div>
     </section>
   );

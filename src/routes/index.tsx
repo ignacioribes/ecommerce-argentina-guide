@@ -123,9 +123,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Simulator */}
-      <Simulator />
-
       {/* Comparison */}
       <section id="comparativa" className="mx-auto max-w-7xl px-6 pb-20">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
@@ -140,25 +137,25 @@ function Index() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar (ej: comisión, envío, IA…)"
-              className="w-full rounded-full border border-hairline bg-card px-5 py-3 text-sm text-white placeholder:text-ink-soft/70 focus:outline-none focus:ring-2 focus:ring-accent-1"
+              className="w-full rounded-full border-2 border-white/20 bg-card px-5 py-3 text-sm text-white placeholder:text-ink-soft/70 focus:outline-none focus:border-accent-1 focus:ring-2 focus:ring-accent-1/30 shadow-inner"
             />
           </div>
         </div>
 
-        <div className="overflow-x-auto rounded-3xl border border-hairline bg-card">
+        <div className="overflow-x-auto rounded-3xl border-2 border-white/20 bg-card shadow-2xl shadow-black/50">
           <table className="w-full min-w-[840px] border-collapse">
             <thead>
-              <tr className="border-b border-hairline bg-surface-2/40">
-                <th className="sticky left-0 z-10 bg-card text-left px-6 py-5 w-[220px] font-mono text-[11px] uppercase tracking-widest text-ink-soft">
+              <tr className="bg-surface-2/80">
+                <th className="sticky left-0 z-20 bg-card border-r-2 border-b-2 border-white/20 text-left px-6 py-5 w-[240px] font-mono text-[11px] uppercase tracking-widest text-accent-1 font-bold shadow-[2px_0_10px_rgba(0,0,0,0.4)]">
                   Característica
                 </th>
                 {platforms.map((p) => (
                   <th
                     key={p.id}
-                    className="text-left px-6 py-5 font-display text-lg font-semibold text-white align-bottom"
+                    className="text-left px-6 py-5 border-r border-b-2 border-white/20 last:border-r-0 font-display text-lg font-semibold text-white align-bottom bg-surface-2/70"
                   >
                     <div className="flex items-center gap-2">
-                      <span className={`h-2 w-2 rounded-full ${accentClass[p.accent]}`} />
+                      <span className={`h-2.5 w-2.5 rounded-full ${accentClass[p.accent]}`} />
                       {p.name}
                     </div>
                   </th>
@@ -175,10 +172,10 @@ function Index() {
                 if (filtered.length === 0) return null;
                 return (
                   <Fragment key={`g-${group}`}>
-                    <tr className="bg-surface-2/80">
+                    <tr className="bg-surface-2">
                       <td
                         colSpan={4}
-                        className="sticky left-0 px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-white/90 font-semibold"
+                        className="border-y-2 border-white/20 px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-white font-bold bg-surface-2/95"
                       >
                         · {group}
                       </td>
@@ -186,15 +183,15 @@ function Index() {
                     {filtered.map((r, idx) => (
                       <tr
                         key={`${group}-${r.label}`}
-                        className={`border-t border-hairline/70 transition-colors hover:bg-surface-2/30 ${idx % 2 === 1 ? "bg-surface/30" : ""}`}
+                        className={`transition-colors hover:bg-surface-2/40 ${idx % 2 === 1 ? "bg-surface/40" : "bg-card/40"}`}
                       >
-                        <td className="sticky left-0 z-10 bg-inherit px-6 py-5 align-top font-medium text-white w-[220px]">
+                        <td className="sticky left-0 z-10 bg-card border-r-2 border-b border-white/20 px-6 py-5 align-top font-medium text-white w-[240px] shadow-[2px_0_10px_rgba(0,0,0,0.3)]">
                           {r.label}
                         </td>
                         {platforms.map((p) => (
                           <td
                             key={p.id}
-                            className="px-6 py-5 align-top text-sm text-ink-soft leading-relaxed"
+                            className="px-6 py-5 border-r border-b border-white/15 last:border-r-0 align-top text-sm text-ink-soft leading-relaxed"
                           >
                             {r.values[p.id]}
                           </td>
@@ -208,6 +205,9 @@ function Index() {
           </table>
         </div>
       </section>
+
+      {/* Simulator (Desplegable) */}
+      <Simulator />
 
       {/* Notes */}
       <section id="notas" className="mx-auto max-w-7xl px-6 pb-24">
