@@ -1,29 +1,38 @@
-# Welcome to your Lovable project
+# ComparaTiendas.ar 🇦🇷
 
-This project was built with [Lovable](https://lovable.dev).
+Guía comparativa e interactiva de plataformas de e-commerce en Argentina (Tiendanube, Shopify, Empretienda).
 
-## Build with Lovable
+## 🚀 Características
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+- **Tabla comparativa en tiempo real**: Compará precios, comisiones, funcionalidades, medios de pago y envíos lado a lado.
+- **Simulador interactivo de costos**: Calculá el costo mensual real (plan + comisiones) ingresando tu facturación proyectada y cotización del dólar.
+- **Modo Oscuro exclusivo**: Interfaz moderna de alto contraste inspirada en la identidad de ComparaTiendas.ar.
+- **Letra chica y detalles clave**: Información clara y transparente sobre costos ocultos o adicionales.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## 🛠️ Tecnologías utilizadas
 
-## Development
+- **Framework**: [TanStack Start](https://tanstack.com/router) / React 19
+- **Lenguaje**: TypeScript
+- **Estilos**: Tailwind CSS 4 (OKLCH color system)
+- **Íconos**: Lucide React
+- **Build Tool**: Vite / Nitro
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## 💻 Desarrollo local
+
+Requisitos previos: Node.js (v18+) o Bun.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+# Clonar el repositorio
+git clone <repository-url>
+cd ecommerce-argentina-guide
+
+# Instalar dependencias
+npm install # o bun install
+
+# Iniciar servidor de desarrollo
+npm run dev # o bun dev
 ```
 
-## Built with
+## ⚖️ Descargo de responsabilidad
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+El propósito de este proyecto es difundir e informar sobre distintas opciones para implementar una tienda online o ecommerce en Argentina, pero no pretende en ningún caso asesorar o recomendar sobre las alternativas representadas.
