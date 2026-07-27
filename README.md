@@ -17,13 +17,22 @@ Guía comparativa e interactiva de plataformas de e-commerce en Argentina (Tiend
 - **Íconos**: Lucide React
 - **Build Tool**: Vite / Nitro
 
+## 🤝 Colaborar / Contribuir
+
+¡Las contribuciones son más que bienvenidas! Si querés actualizar datos, agregar plataformas o mejorar el código:
+
+1. Hacé un fork del proyecto: [https://github.com/ignacioribes/ecommerce-argentina-guide](https://github.com/ignacioribes/ecommerce-argentina-guide)
+2. Creá una rama para tu cambio (`git checkout -b mi-aporte`)
+3. Realizá tus commits (`git commit -m 'Agrega nueva función'`)
+4. Enviá tu Pull Request.
+
 ## 💻 Desarrollo local
 
 Requisitos previos: Node.js (v18+) o Bun.
 
 ```sh
 # Clonar el repositorio
-git clone <repository-url>
+git clone https://github.com/ignacioribes/ecommerce-argentina-guide.git
 cd ecommerce-argentina-guide
 
 # Instalar dependencias

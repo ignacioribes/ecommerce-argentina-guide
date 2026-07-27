@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Fragment, useMemo, useState } from "react";
-import { Table, Calculator } from "lucide-react";
+import { Table, Calculator, Github } from "lucide-react";
 import { platforms, rows, notes } from "@/data/platforms";
 import { Simulator } from "@/components/Simulator";
 
@@ -75,6 +75,15 @@ function Index() {
             <a href="#comparativa" className="hover:text-white transition-colors">Comparativa</a>
             <a href="#simulador" className="hover:text-white transition-colors">Simulador</a>
             <a href="#notas" className="hover:text-white transition-colors">Notas</a>
+            <a
+              href="https://github.com/ignacioribes/ecommerce-argentina-guide"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-white/80 hover:text-white transition-colors"
+            >
+              <Github className="h-4 w-4" />
+              <span>GitHub</span>
+            </a>
             <span className="font-mono text-xs bg-surface-2 border border-hairline px-2.5 py-1 rounded-full text-white/70">jul 2026</span>
           </div>
         </div>
@@ -252,7 +261,19 @@ function Index() {
             <p>
               Datos tomados de los sitios oficiales de cada plataforma en su versión Argentina.
             </p>
-            <p className="font-mono text-xs text-white/50 shrink-0">Actualizado · julio 2026</p>
+            <div className="flex items-center gap-4 text-xs">
+              <a
+                href="https://github.com/ignacioribes/ecommerce-argentina-guide"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-white/80 hover:text-accent-1 transition-colors font-medium"
+              >
+                <Github className="h-4 w-4" />
+                <span>Colaborar en GitHub</span>
+              </a>
+              <span className="text-white/20">•</span>
+              <p className="font-mono text-xs text-white/50 shrink-0">Actualizado · julio 2026</p>
+            </div>
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-4.5 text-xs leading-relaxed text-white/70">
