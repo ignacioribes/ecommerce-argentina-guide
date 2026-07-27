@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { platforms, rows, notes } from "@/data/platforms";
 import { Simulator } from "@/components/Simulator";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,6 +71,7 @@ function Index() {
             <a href="#simulador" className="hover:text-ink transition-colors">Simulador</a>
             <a href="#notas" className="hover:text-ink transition-colors">Notas</a>
             <span className="font-mono text-xs bg-surface-2 px-2 py-1 rounded">jul 2026</span>
+            <ThemeToggle />
           </div>
         </div>
       </header>
