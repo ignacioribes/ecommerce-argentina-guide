@@ -4,6 +4,7 @@ export type Platform = {
   tagline: string;
   origin: string;
   accent: string; // token name
+  url: string; // pricing link
 };
 
 export const platforms: Platform[] = [
@@ -13,6 +14,7 @@ export const platforms: Platform[] = [
     tagline: "Plataforma latinoamericana, fuerte en AR/BR/MX",
     origin: "Argentina / LATAM",
     accent: "accent-1",
+    url: "https://www.tiendanube.com/planes-y-precios",
   },
   {
     id: "shopify",
@@ -20,6 +22,7 @@ export const platforms: Platform[] = [
     tagline: "Plataforma global (Canadá), estándar internacional",
     origin: "Canadá / Global",
     accent: "accent-2",
+    url: "https://www.shopify.com/ar/precios",
   },
   {
     id: "empretienda",
@@ -27,6 +30,7 @@ export const platforms: Platform[] = [
     tagline: "Plataforma argentina, +470.000 tiendas creadas",
     origin: "Argentina",
     accent: "accent-3",
+    url: "https://www.empretienda.com/#pricing",
   },
 ];
 

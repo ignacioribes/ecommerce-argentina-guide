@@ -1,6 +1,6 @@
 # ComparaTiendas.com.ar 🇦🇷
 
-Guía comparativa e interactiva de plataformas de e-commerce en Argentina (Tiendanube, Shopify, Empretienda).
+Guía comparativa e interactiva de plataformas de e‑commerce en Argentina ([Tiendanube](https://www.tiendanube.com/planes-y-precios), [Shopify](https://www.shopify.com/ar/precios), [Empretienda](https://www.empretienda.com/#pricing)).
 
 ## 🚀 Características
 

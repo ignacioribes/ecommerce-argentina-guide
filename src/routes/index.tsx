@@ -141,10 +141,10 @@ function Index() {
                 </span>
                 <span className="text-xs text-ink-soft/80 font-mono">{p.origin}</span>
               </div>
-              <h2 className="mt-4 font-display text-3xl font-semibold text-white">
-                {p.name}
-              </h2>
-              <p className="mt-2 text-sm text-ink-soft leading-relaxed">{p.tagline}</p>
+                <h2 className="mt-4 font-display text-3xl font-semibold text-white">
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{p.name}</a>
+                </h2>
+                <p className="mt-2 text-sm text-ink-soft leading-relaxed">{p.tagline}</p>
               <div className={`mt-6 h-1 w-12 rounded-full ${accentClass[p.accent]}`} />
             </article>
           ))}
