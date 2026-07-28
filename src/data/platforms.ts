@@ -90,9 +90,9 @@ export const rows: Row[] = [
     group: "Comisiones",
     label: "Comisión con medios de pago propios",
     values: {
-      tiendanube: "Gratis con Pago Nube en todos los planes",
-      shopify: "Incluida si usás Shopify Payments",
-      empretienda: "Sin comisión por venta en ningún caso",
+      tiendanube: "Gratis con Pago Nube en todos los planes (sin comisión por transacción)",
+      shopify: "⚠️ Shopify Payments no está disponible en Argentina — siempre se usa pasarela externa",
+      empretienda: "Sin procesador propio: usa Mercado Pago / Ualá Bis sin comisión adicional de Empretienda",
     },
   },
   {
@@ -100,8 +100,8 @@ export const rows: Row[] = [
     label: "Comisión con pasarelas externas",
     values: {
       tiendanube: "2% (Esencial) → 1% (Impulso) → 0,7% (Escala)",
-      shopify: "2% (Basic) → 1% (Grow) → 0,6% (Advanced) → 0,2% (Plus)",
-      empretienda: "Sin comisión (Mercado Pago, Ualá Bis, efectivo, transferencia)",
+      shopify: "2% (Basic) → 1% (Grow) → 0,6% (Advanced) → 0,2% (Plus) — se suma a la comisión del procesador",
+      empretienda: "Sin comisión de plataforma (Mercado Pago, Ualá Bis, efectivo, transferencia)",
     },
   },
   {
@@ -111,6 +111,33 @@ export const rows: Row[] = [
       tiendanube: "Pesos argentinos (ARS)",
       shopify: "Dólares (USD)",
       empretienda: "Pesos argentinos (ARS)",
+    },
+  },
+  {
+    group: "Comisiones",
+    label: "Plazo de liberación del dinero",
+    values: {
+      tiendanube: "1, 7 o 14 días hábiles con Pago Nube (a elegir). +24 hs hábiles adicionales para acreditar en cuenta bancaria/CVU",
+      shopify: "Sin solución propia en AR. Con Mercado Pago: desde inmediato hasta 35 días (según tarifa). Con Talo: liquidación instantánea",
+      empretienda: "Depende del procesador elegido: MP desde inmediato hasta 35 días; Ualá Bis según sus condiciones",
+    },
+  },
+  {
+    group: "Comisiones",
+    label: "Costo de liberación (tarjeta / MODO)",
+    values: {
+      tiendanube: "1 día: 6,40% → 6,09% → 5,89% → 5,59% + IVA | 7 días: 4,45% → 4,39% → 4,19% → 3,89% + IVA | 14 días: 3,50% → 3,49% → 3,29% → 2,99% + IVA (Inicial → Esencial → Impulso → Escala)",
+      shopify: "No aplica (Shopify Payments no disponible en AR). Ejemplo con Mercado Pago: inmediato ~6,29% + IVA; 35 días ~1,49% + IVA",
+      empretienda: "Ídem Shopify: depende de la pasarela contratada, no de Empretienda",
+    },
+  },
+  {
+    group: "Comisiones",
+    label: "Costo de liberación (transferencia)",
+    values: {
+      tiendanube: "1,50% + IVA (Inicial / Esencial) → 0,99% + IVA (Impulso) → 0,85% + IVA (Escala) — con Pago Nube",
+      shopify: "Con Talo: 1% (total 3% sumando el fee de Shopify Basic). Sin comisión de plataforma si el procesador no la cobra",
+      empretienda: "Sin comisión de Empretienda. Aplica lo que cobre el procesador (ej. Mercado Pago / Ualá Bis)",
     },
   },
   {
@@ -189,7 +216,8 @@ export const rows: Row[] = [
 
 export const notes: string[] = [
   "Los precios de Tiendanube y Empretienda están en pesos argentinos; los de Shopify están en dólares y son los publicados en la versión Argentina del sitio (shopify.com/ar).",
-  "Tiendanube cobra una comisión adicional por «liberación del dinero» con Pago Nube (desde 2,99% + IVA hasta 3,50% + IVA según el plan), separada de la comisión por transacción.",
+  "Tiendanube cobra una comisión por «liberación del dinero» con Pago Nube separada de la comisión por transacción: va desde 0,85% + IVA (transferencia en Escala) hasta 6,40% + IVA (tarjeta a 1 día en Inicial), según el plazo elegido y el plan.",
+  "Shopify Payments no está disponible en Argentina: toda tienda Shopify necesita una pasarela externa (Mercado Pago, Mobbex, Talo, etc.) y paga además la comisión de Shopify por pasarela externa (2% en Basic hasta 0,2% en Plus).",
   "Shopify no tiene plan gratis; ofrece prueba de 3 días y luego US$1/mes durante 3 meses antes de pasar al precio de lista.",
   "Empretienda tiene un único plan (todo incluido) sin escalones de funcionalidades, a diferencia de Tiendanube y Shopify.",
   "Última actualización: julio 2026.",
