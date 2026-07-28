@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { z } from "zod";
-import { ChevronDown, ChevronUp, Calculator, Zap, CheckCircle2 } from "lucide-react";
+import { ChevronDown, ChevronUp, Calculator, Zap } from "lucide-react";
 import { platforms } from "@/data/platforms";
 import { platformPlans, type Plan } from "@/data/plans";
 
@@ -451,15 +451,13 @@ export function Simulator() {
                         key={f.id}
                         id={`sim-feature-${f.id}`}
                         onClick={() => toggleFeature(f.id)}
-                        className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${
+                        className={`inline-flex items-center rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${
                           isSelected
                             ? "border-accent-1/60 bg-accent-1/15 text-white shadow-sm shadow-accent-1/20 scale-[1.03]"
                             : "border-white/15 bg-white/5 text-ink-soft hover:border-white/30 hover:text-white hover:bg-white/10"
                         }`}
                       >
-                        <span>{f.emoji}</span>
-                        <span>{f.label}</span>
-                        {isSelected && <CheckCircle2 className="h-3 w-3 text-accent-1 ml-0.5" />}
+                        {f.label}
                       </button>
                     );
                   })}
