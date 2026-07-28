@@ -156,7 +156,7 @@ export function Simulator() {
 
   // -- Raw input state (live) --
   const [revenueStr, setRevenueStr] = useState("1500000");
-  const [usdRateStr, setUsdRateStr] = useState("1300");
+  const [usdRateStr, setUsdRateStr] = useState("1500");
   const [gateway, setGateway] = useState<"own" | "external">("own");
   const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
 
@@ -393,11 +393,10 @@ export function Simulator() {
                         key={g}
                         id={`sim-gateway-${g}`}
                         onClick={() => handleGatewayChange(g)}
-                        className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                          gateway === g
+                        className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${gateway === g
                             ? "bg-white text-background font-bold shadow-sm"
                             : "text-ink-soft hover:text-white"
-                        }`}
+                          }`}
                       >
                         {g === "own" ? "Propio" : "Externo"}
                       </button>
@@ -415,11 +414,10 @@ export function Simulator() {
                         key={b}
                         id={`sim-billing-${b}`}
                         onClick={() => handleBillingChange(b)}
-                        className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                          billing === b
+                        className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${billing === b
                             ? "bg-white text-background font-bold shadow-sm"
                             : "text-ink-soft hover:text-white"
-                        }`}
+                          }`}
                       >
                         {b === "monthly" ? "Mensual" : "Anual"}
                       </button>
@@ -451,11 +449,10 @@ export function Simulator() {
                         key={f.id}
                         id={`sim-feature-${f.id}`}
                         onClick={() => toggleFeature(f.id)}
-                        className={`inline-flex items-center rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${
-                          isSelected
+                        className={`inline-flex items-center rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${isSelected
                             ? "border-accent-1/60 bg-accent-1/15 text-white shadow-sm shadow-accent-1/20 scale-[1.03]"
                             : "border-white/15 bg-white/5 text-ink-soft hover:border-white/30 hover:text-white hover:bg-white/10"
-                        }`}
+                          }`}
                       >
                         {f.label}
                       </button>
@@ -470,17 +467,16 @@ export function Simulator() {
                   id="sim-calculate-btn"
                   onClick={handleCalculate}
                   disabled={isCalculating}
-                  className={`relative inline-flex items-center gap-2.5 rounded-xl px-7 py-3.5 text-sm font-bold shadow-lg transition-all duration-200 ${
-                    isDirty || !hasCalculated
+                  className={`relative inline-flex items-center gap-2.5 rounded-xl px-7 py-3.5 text-sm font-bold shadow-lg transition-all duration-200 ${isDirty || !hasCalculated
                       ? "bg-gradient-to-r from-[oklch(0.72_0.17_195)] to-[oklch(0.78_0.19_140)] text-[oklch(0.12_0.02_255)] shadow-[oklch(0.72_0.17_195/0.35)] hover:scale-[1.02] hover:shadow-xl active:scale-[0.98]"
                       : "bg-surface-2 text-white/60 border border-white/15 cursor-not-allowed shadow-none"
-                  }`}
+                    }`}
                 >
                   {isCalculating ? (
                     <>
                       <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
                       </svg>
                       <span>Calculando…</span>
                     </>
@@ -552,9 +548,8 @@ export function Simulator() {
                         <div className="px-5 pt-3 pb-1">
                           <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
                             <div
-                              className={`h-full rounded-full transition-all duration-700 ${
-                                score >= 75 ? "bg-emerald-400" : score >= 50 ? "bg-amber-400" : "bg-red-400"
-                              }`}
+                              className={`h-full rounded-full transition-all duration-700 ${score >= 75 ? "bg-emerald-400" : score >= 50 ? "bg-amber-400" : "bg-red-400"
+                                }`}
                               style={{ width: `${score}%` }}
                             />
                           </div>
@@ -632,8 +627,8 @@ export function Simulator() {
             {isCalculating && (
               <div className="flex items-center justify-center gap-3 py-16">
                 <svg className="h-6 w-6 animate-spin text-accent-1" viewBox="0 0 24 24" fill="none">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
                 </svg>
                 <span className="text-sm text-ink-soft font-mono">Calculando costos…</span>
               </div>
