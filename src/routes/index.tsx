@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Fragment, useMemo, useState } from "react";
-import { Table, Calculator, Github } from "lucide-react";
+import React, { Fragment, useMemo, useState } from "react";
+import { Table, Calculator, Github, DollarSign, Percent, Package } from "lucide-react";
 import { platforms, rows, notes } from "@/data/platforms";
 import { Simulator } from "@/components/Simulator";
 
@@ -35,6 +35,38 @@ const accentText: Record<string, string> = {
   "accent-1": "text-accent-1",
   "accent-2": "text-accent-2",
   "accent-3": "text-accent-3",
+};
+
+type GroupMeta = {
+  icon: React.ReactNode;
+  label: string;
+  gradient: string;
+  pill: string;
+  bar: string;
+};
+
+const groupMeta: Record<string, GroupMeta> = {
+  Precios: {
+    icon: <DollarSign className="h-4 w-4" />,
+    label: "Precios",
+    gradient: "from-[oklch(0.72_0.17_195/0.18)] to-transparent",
+    pill: "bg-[oklch(0.72_0.17_195/0.2)] text-[oklch(0.82_0.17_195)] border border-[oklch(0.72_0.17_195/0.4)]",
+    bar: "bg-[oklch(0.72_0.17_195)]",
+  },
+  Comisiones: {
+    icon: <Percent className="h-4 w-4" />,
+    label: "Comisiones",
+    gradient: "from-[oklch(0.78_0.19_140/0.18)] to-transparent",
+    pill: "bg-[oklch(0.78_0.19_140/0.2)] text-[oklch(0.88_0.19_140)] border border-[oklch(0.78_0.19_140/0.4)]",
+    bar: "bg-[oklch(0.78_0.19_140)]",
+  },
+  Producto: {
+    icon: <Package className="h-4 w-4" />,
+    label: "Producto",
+    gradient: "from-[oklch(0.88_0.18_92/0.18)] to-transparent",
+    pill: "bg-[oklch(0.88_0.18_92/0.2)] text-[oklch(0.75_0.18_92)] border border-[oklch(0.88_0.18_92/0.4)]",
+    bar: "bg-[oklch(0.88_0.18_92)]",
+  },
 };
 
 function Index() {
@@ -200,12 +232,28 @@ function Index() {
                 if (filtered.length === 0) return null;
                 return (
                   <Fragment key={`g-${group}`}>
-                    <tr className="bg-surface-2">
+                    <tr>
                       <td
                         colSpan={4}
-                        className="border-y-2 border-white/20 px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-white font-bold bg-surface-2/95"
+                        className="p-0 border-t-2 border-b border-white/20"
                       >
-                        · {group}
+                        {/* Group header band */}
+                        <div className={`relative flex items-center gap-4 px-6 py-4 bg-gradient-to-r ${groupMeta[group]?.gradient ?? "from-white/5 to-transparent"} overflow-hidden`}>
+                          {/* Left accent bar */}
+                          <div className={`absolute left-0 inset-y-0 w-[3px] ${groupMeta[group]?.bar ?? "bg-white/30"}`} />
+                          {/* Icon pill */}
+                          <span className={`inline-flex items-center justify-center h-7 w-7 rounded-lg text-sm ${groupMeta[group]?.pill ?? "bg-white/10 text-white/70 border border-white/20"}`}>
+                            {groupMeta[group]?.icon}
+                          </span>
+                          {/* Label */}
+                          <span className="font-display text-base font-semibold text-white tracking-tight">
+                            {group}
+                          </span>
+                          {/* Row count */}
+                          <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-white/35">
+                            {filtered.length} {filtered.length === 1 ? "fila" : "filas"}
+                          </span>
+                        </div>
                       </td>
                     </tr>
                     {filtered.map((r, idx) => (
