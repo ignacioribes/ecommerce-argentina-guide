@@ -676,6 +676,9 @@ export function Simulator({ initialOpen = false, isOpen: controlledIsOpen, onOpe
                                   <span className="font-mono">
                                     ({(feeRate * 100).toFixed(feeRate < 0.01 ? 2 : 1)}%)
                                   </span>
+                                  {platform.id === "shopify" && (
+                                    <span className="ml-1 text-[10px] text-ink-soft/70">— se suma a la comisión del procesador</span>
+                                  )}
                                 </dt>
                                 <dd className="text-right tabular-nums text-white/90">
                                   {commissionARS === 0 ? "—" : formatARS(commissionARS)}
