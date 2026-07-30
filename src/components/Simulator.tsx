@@ -131,6 +131,23 @@ function formatARS(n: number) {
   }).format(Math.round(n));
 }
 
+const TIENDA_NUBE_RELEASE_FEES = [
+  { days: 1, label: "1 día", lowerRate: 0.0559, upperRate: 0.064 },
+  { days: 7, label: "7 días", lowerRate: 0.0389, upperRate: 0.0445 },
+  { days: 14, label: "14 días", lowerRate: 0.0299, upperRate: 0.035 },
+] as const;
+
+function estimateTiendaNubeReleaseCost(revenue: number) {
+  return TIENDA_NUBE_RELEASE_FEES.map(({ days, label, lowerRate, upperRate }) => ({
+    days,
+    label,
+    lowerRate,
+    upperRate,
+    minCost: revenue * lowerRate,
+    maxCost: revenue * upperRate,
+  }));
+}
+
 function planPriceARS(plan: Plan, billing: "monthly" | "annual", usdRate: number) {
   const raw =
     billing === "annual" && plan.monthlyAnnual != null
@@ -251,6 +268,10 @@ export function Simulator() {
       null as null | (typeof flat)[number],
     );
   }, [results]);
+
+  const tiendaNubeReleaseCost = useMemo(() => {
+    return estimateTiendaNubeReleaseCost(snapshot.revenue);
+  }, [snapshot.revenue]);
 
   // ---------------------------------------------------------------------------
   // Feature toggle
@@ -553,6 +574,39 @@ export function Simulator() {
                               style={{ width: `${score}%` }}
                             />
                           </div>
+                        </div>
+                      )}
+
+                      {platform.id === "tiendanube" && (
+                        <div className="border-t border-hairline bg-surface-2/20 px-5 py-4">
+                          <div className="flex items-center justify-between gap-3">
+                            <p className="text-[10px] font-mono uppercase tracking-widest text-accent-1 font-semibold">
+                              Liberación con Pago Nube
+                            </p>
+                            <span className="text-[10px] font-mono text-ink-soft/70">
+                              aprox. sobre {formatARS(snapshot.revenue)}
+                            </span>
+                          </div>
+
+                          <div className="mt-3 space-y-2">
+                            {tiendaNubeReleaseCost.map(({ days, label, lowerRate, upperRate, minCost, maxCost }) => (
+                              <div key={days} className="rounded-lg border border-white/10 bg-background/50 px-3 py-2">
+                                <div className="flex items-center justify-between gap-2">
+                                  <span className="text-sm text-white">{label}</span>
+                                  <span className="text-[11px] font-mono text-ink-soft">
+                                    {(lowerRate * 100).toFixed(2)}% – {(upperRate * 100).toFixed(2)}%
+                                  </span>
+                                </div>
+                                <p className="mt-1 text-[11px] leading-snug text-ink-soft/80">
+                                  desde {formatARS(minCost)} hasta {formatARS(maxCost)}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+
+                          <p className="mt-3 text-[11px] leading-snug text-ink-soft/70">
+                            Referencia orientativa para la comisión de liberación; no incluye IVA ni costos de acreditación bancaria.
+                          </p>
                         </div>
                       )}
 
