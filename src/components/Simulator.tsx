@@ -177,11 +177,25 @@ function scoreBadgeStyle(score: number): string {
   return "bg-red-500/20 text-red-300 border border-red-500/40";
 }
 
+type SimulatorProps = {
+  initialOpen?: boolean;
+  isOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+};
+
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
-export function Simulator() {
-  const [isOpen, setIsOpen] = useState(false);
+export function Simulator({ initialOpen = false, isOpen: controlledIsOpen, onOpenChange }: SimulatorProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(initialOpen);
+  const isOpen = controlledIsOpen ?? internalIsOpen;
+
+  function setIsOpen(next: boolean) {
+    if (controlledIsOpen === undefined) {
+      setInternalIsOpen(next);
+    }
+    onOpenChange?.(next);
+  }
 
   // -- Raw input state (live) --
   const [revenueStr, setRevenueStr] = useState("1.500.000");

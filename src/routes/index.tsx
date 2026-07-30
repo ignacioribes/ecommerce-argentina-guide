@@ -80,7 +80,16 @@ function Index() {
   }, []);
 
   const [query, setQuery] = useState("");
+  const [isSimulatorOpen, setIsSimulatorOpen] = useState(false);
   const q = query.trim().toLowerCase();
+
+  function handleOpenSimulator(event?: React.MouseEvent<HTMLAnchorElement>) {
+    event?.preventDefault();
+    setIsSimulatorOpen(true);
+    requestAnimationFrame(() => {
+      document.getElementById("simulador")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
 
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-accent-1/30 selection:text-white">
@@ -105,7 +114,7 @@ function Index() {
           </div>
           <div className="hidden sm:flex items-center gap-6 text-sm text-ink-soft">
             <a href="#comparativa" className="hover:text-white transition-colors">Comparativa</a>
-            <a href="#simulador" className="hover:text-white transition-colors">Simulador</a>
+            <a href="#simulador" onClick={(event) => handleOpenSimulator(event)} className="hover:text-white transition-colors">Simulador</a>
             <a href="#notas" className="hover:text-white transition-colors">Notas</a>
             <a
               href="https://github.com/ignacioribes/ecommerce-argentina-guide"
@@ -151,6 +160,7 @@ function Index() {
             </a>
             <a
               href="#simulador"
+              onClick={(event) => handleOpenSimulator(event)}
               className="inline-flex items-center gap-2.5 rounded-xl border border-white/20 bg-surface-2/80 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-surface-2 hover:border-white/40 hover:scale-[1.02] active:scale-[0.98]"
             >
               <Calculator className="h-4 w-4 text-accent-3" />
@@ -283,7 +293,7 @@ function Index() {
       </section>
 
       {/* Simulator (Desplegable) */}
-      <Simulator />
+      <Simulator isOpen={isSimulatorOpen} onOpenChange={setIsSimulatorOpen} />
 
       {/* Notes */}
       <section id="notas" className="mx-auto max-w-7xl px-6 pb-24">
