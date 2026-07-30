@@ -203,10 +203,10 @@ function Index() {
         </div>
 
         <div className="overflow-x-auto rounded-3xl border-2 border-white/20 bg-card shadow-2xl shadow-black/50">
-          <table className="w-full min-w-[840px] border-collapse">
+          <table className="w-full min-w-[720px] md:min-w-[840px] border-collapse">
             <thead>
               <tr className="bg-surface-2/80">
-                <th className="sticky left-0 z-20 bg-card border-r-2 border-b-2 border-white/20 text-left px-6 py-5 w-[240px] font-mono text-[11px] uppercase tracking-widest text-accent-1 font-bold shadow-[2px_0_10px_rgba(0,0,0,0.4)]">
+                <th className="md:sticky md:left-0 z-20 bg-card border-r-2 border-b-2 border-white/20 text-left px-3 py-4 md:px-6 md:py-5 w-[110px] md:w-[240px] min-w-[110px] md:min-w-[240px] font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-accent-1 font-bold md:shadow-[2px_0_10px_rgba(0,0,0,0.4)]">
                   Característica
                 </th>
                 {platforms.map((p) => (
@@ -261,7 +261,7 @@ function Index() {
                         key={`${group}-${r.label}`}
                         className={`transition-colors hover:bg-surface-2/40 ${idx % 2 === 1 ? "bg-surface/40" : "bg-card/40"}`}
                       >
-                        <td className="sticky left-0 z-10 bg-card border-r-2 border-b border-white/20 px-6 py-5 align-top font-medium text-white w-[240px] shadow-[2px_0_10px_rgba(0,0,0,0.3)]">
+                        <td className="md:sticky md:left-0 z-10 bg-card border-r-2 border-b border-white/20 px-3 py-4 md:px-6 md:py-5 align-top font-medium text-white w-[110px] md:w-[240px] min-w-[110px] md:min-w-[240px] md:shadow-[2px_0_10px_rgba(0,0,0,0.3)]">
                           {r.label}
                         </td>
                         {platforms.map((p) => (
