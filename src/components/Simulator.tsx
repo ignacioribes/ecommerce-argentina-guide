@@ -628,55 +628,6 @@ export function Simulator({ initialOpen = false, isOpen: controlledIsOpen, onOpe
                         </div>
                       )}
 
-                      {(platform.id === "tiendanube" || platform.id === "shopify" || platform.id === "empretienda") && (
-                        <div className="border-t border-hairline bg-surface-2/20 px-5 py-4">
-                          <div className="flex items-center justify-between gap-3">
-                            <p className="text-[10px] font-mono uppercase tracking-widest text-accent-1 font-semibold">
-                              {platform.id === "tiendanube" ? "Liberación con Pago Nube" : "Liberación con Mercado Pago"}
-                            </p>
-                            <span className="text-[10px] font-mono text-ink-soft/70">
-                              aprox. sobre {formatARS(snapshot.revenue)}
-                            </span>
-                          </div>
-
-                          <div className="mt-3 space-y-2">
-                            {(platform.id === "tiendanube"
-                              ? tiendaNubeReleaseCost
-                              : mercadoPagoReleaseCost).map((item) => (
-                              <div key={item.label} className="rounded-lg border border-white/10 bg-background/50 px-3 py-2">
-                                <div className="flex items-center justify-between gap-2">
-                                  <span className="text-sm text-white">{item.label}</span>
-                                  <span className="text-[11px] font-mono text-ink-soft">
-                                    {platform.id === "tiendanube"
-                                      ? `${(item.lowerRate * 100).toFixed(2)}% – ${(item.upperRate * 100).toFixed(2)}%`
-                                      : `${(item.rate * 100).toFixed(2)}% + IVA`}
-                                  </span>
-                                </div>
-                                <p className="mt-1 text-[11px] leading-snug text-ink-soft/80">
-                                  {platform.id === "tiendanube"
-                                    ? `desde ${formatARS(item.minCost)} hasta ${formatARS(item.maxCost)}`
-                                    : formatARS(item.cost)}
-                                </p>
-                              </div>
-                            ))}
-                          </div>
-
-                          <p className="mt-3 text-[11px] leading-snug text-ink-soft/70">
-                            Referencia orientativa basada en la información pública de {platform.id === "tiendanube" ? "Pago Nube" : "Mercado Pago"}. {platform.id !== "tiendanube" && "Ver referencia: "}
-                            {platform.id !== "tiendanube" && (
-                              <a
-                                href="https://www.mercadopago.com.ar/herramientas-para-vender/check-out"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-accent-1 underline-offset-2 hover:underline"
-                              >
-                                Mercado Pago Checkout
-                              </a>
-                            )}
-                          </p>
-                        </div>
-                      )}
-
                       <ul className="divide-y divide-hairline/70">
                         {plans.map(({ plan, planARS, feeRate, commissionARS, totalARS }) => {
                           const isCheapest = cheapest?.plan.id === plan.id;
@@ -729,6 +680,63 @@ export function Simulator({ initialOpen = false, isOpen: controlledIsOpen, onOpe
                           );
                         })}
                       </ul>
+
+                      {(platform.id === "tiendanube" || platform.id === "shopify" || platform.id === "empretienda") && (
+                        <div className="border-t border-hairline bg-surface-2/20 px-5 py-4">
+                          <div className="flex items-center justify-between gap-3">
+                            <p className="text-[10px] font-mono uppercase tracking-widest text-accent-1 font-semibold">
+                              {platform.id === "tiendanube" ? "Liberación con Pago Nube" : "Liberación con Mercado Pago"}
+                            </p>
+                            <span className="text-[10px] font-mono text-ink-soft/70">
+                              aprox. sobre {formatARS(snapshot.revenue)}
+                            </span>
+                          </div>
+
+                          <div className="mt-3 space-y-2">
+                            {(platform.id === "tiendanube"
+                              ? tiendaNubeReleaseCost
+                              : mercadoPagoReleaseCost).map((item) => (
+                              <div key={item.label} className="rounded-lg border border-white/10 bg-background/50 px-3 py-2">
+                                <div className="flex items-center justify-between gap-2">
+                                  <span className="text-sm text-white">{item.label}</span>
+                                  <span className="text-[11px] font-mono text-ink-soft">
+                                    {platform.id === "tiendanube"
+                                      ? `${(item.lowerRate * 100).toFixed(2)}% – ${(item.upperRate * 100).toFixed(2)}%`
+                                      : `${(item.rate * 100).toFixed(2)}% + IVA`}
+                                  </span>
+                                </div>
+                                <p className="mt-1 text-[11px] leading-snug text-ink-soft/80">
+                                  {platform.id === "tiendanube"
+                                    ? `desde ${formatARS(item.minCost)} hasta ${formatARS(item.maxCost)}`
+                                    : formatARS(item.cost)}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+
+                          <p className="mt-3 text-[11px] leading-snug text-ink-soft/70">
+                            Referencia orientativa basada en la información pública de {platform.id === "tiendanube" ? "Pago Nube" : "Mercado Pago"}. {platform.id === "tiendanube" ? (
+                              <a
+                                href="https://ayuda.tiendanube.com/es_ES/pago-nube/cuales-son-las-comisiones-de-pago-nube"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-accent-1 underline-offset-2 hover:underline"
+                              >
+                                Ver referencia
+                              </a>
+                            ) : (
+                              <a
+                                href="https://www.mercadopago.com.ar/herramientas-para-vender/check-out"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-accent-1 underline-offset-2 hover:underline"
+                              >
+                                Ver referencia
+                              </a>
+                            )}
+                          </p>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
