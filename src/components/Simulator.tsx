@@ -258,7 +258,12 @@ export function Simulator() {
       const bundle = platformPlans.find((p) => p.platformId === platform.id);
       const plans = (bundle?.plans ?? []).map((plan) => {
         const planARS = planPriceARS(plan, snapshot.billing, snapshot.usdRate);
-        const feeRate = snapshot.gateway === "own" ? plan.ownFee : plan.externalFee;
+        const feeRate =
+          platform.id === "shopify"
+            ? plan.externalFee
+            : snapshot.gateway === "own"
+              ? plan.ownFee
+              : plan.externalFee;
         const commissionARS = snapshot.revenue * feeRate;
         const totalARS = planARS + commissionARS;
         return { plan, planARS, feeRate, commissionARS, totalARS };

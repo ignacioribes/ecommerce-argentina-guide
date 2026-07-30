@@ -60,7 +60,7 @@ export const platformPlans: PlatformPlans[] = [
         monthlyAnnual: 19,
         currency: "USD",
         externalFee: 0.02,
-        ownFee: 0,
+        ownFee: 0.02,
       },
       {
         id: "sh-grow",
@@ -69,7 +69,7 @@ export const platformPlans: PlatformPlans[] = [
         monthlyAnnual: 49,
         currency: "USD",
         externalFee: 0.01,
-        ownFee: 0,
+        ownFee: 0.01,
       },
       {
         id: "sh-advanced",
@@ -78,7 +78,7 @@ export const platformPlans: PlatformPlans[] = [
         monthlyAnnual: 299,
         currency: "USD",
         externalFee: 0.006,
-        ownFee: 0,
+        ownFee: 0.006,
       },
     ],
   },
