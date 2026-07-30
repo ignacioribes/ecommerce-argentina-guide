@@ -131,6 +131,18 @@ function formatARS(n: number) {
   }).format(Math.round(n));
 }
 
+function formatWithDots(value: string) {
+  const digits = value.replace(/\D/g, "");
+  if (!digits) return "";
+  return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+function parseFormattedNumber(value: string) {
+  const normalized = value.replace(/\./g, "").replace(/,/g, "");
+  const parsed = Number(normalized);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
 const TIENDA_NUBE_RELEASE_FEES = [
   { days: 1, label: "1 día", lowerRate: 0.0559, upperRate: 0.064 },
   { days: 7, label: "7 días", lowerRate: 0.0389, upperRate: 0.0445 },
@@ -172,8 +184,8 @@ export function Simulator() {
   const [isOpen, setIsOpen] = useState(false);
 
   // -- Raw input state (live) --
-  const [revenueStr, setRevenueStr] = useState("1500000");
-  const [usdRateStr, setUsdRateStr] = useState("1500");
+  const [revenueStr, setRevenueStr] = useState("1.500.000");
+  const [usdRateStr, setUsdRateStr] = useState("1.500");
   const [gateway, setGateway] = useState<"own" | "external">("own");
   const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
 
@@ -201,11 +213,11 @@ export function Simulator() {
   // Mark dirty when any input changes
   // ---------------------------------------------------------------------------
   function handleRevenueChange(val: string) {
-    setRevenueStr(val);
+    setRevenueStr(formatWithDots(val));
     setIsDirty(true);
   }
   function handleUsdRateChange(val: string) {
-    setUsdRateStr(val);
+    setUsdRateStr(formatWithDots(val));
     setIsDirty(true);
   }
   function handleGatewayChange(val: "own" | "external") {
@@ -222,8 +234,8 @@ export function Simulator() {
   // ---------------------------------------------------------------------------
   function handleCalculate() {
     const parsed = inputSchema.safeParse({
-      revenue: Number(revenueStr) || 0,
-      usdRate: Number(usdRateStr) || 1,
+      revenue: parseFormattedNumber(revenueStr),
+      usdRate: parseFormattedNumber(usdRateStr) || 1,
     });
     const revenue = parsed.success ? parsed.data.revenue : 0;
     const usdRate = parsed.success ? parsed.data.usdRate : 1_300;
@@ -374,7 +386,7 @@ export function Simulator() {
                     <span className="pl-4 text-ink-soft">$</span>
                     <input
                       id="sim-revenue"
-                      type="number"
+                      type="text"
                       inputMode="numeric"
                       min={0}
                       max={1_000_000_000}
@@ -393,7 +405,7 @@ export function Simulator() {
                     <span className="pl-4 text-ink-soft">$</span>
                     <input
                       id="sim-usd-rate"
-                      type="number"
+                      type="text"
                       inputMode="numeric"
                       min={1}
                       max={100000}
