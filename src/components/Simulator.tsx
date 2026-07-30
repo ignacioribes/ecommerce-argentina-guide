@@ -706,9 +706,7 @@ export function Simulator() {
             )}
 
             <p className="px-6 md:px-10 pb-8 text-xs text-ink-soft leading-relaxed">
-              Estimación orientativa. No incluye comisiones extra del medio de pago (Mercado Pago, Ualá,
-              etc.), IVA, retenciones ni la comisión adicional de <em>liberación</em> que Pago Nube
-              cobra sobre cada venta.
+              Estimación orientativa. No incluye IVA, retenciones ni la comisión adicional de <em>liberación</em> que Pago Nube cobra sobre cada venta. Además, en los casos donde se use un procesador externo, deberá sumarse la comisión del proveedor de pago elegido (por ejemplo Mercado Pago, Ualá, Talo, etc.).
             </p>
           </div>
         )}
