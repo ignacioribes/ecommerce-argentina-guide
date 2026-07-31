@@ -335,6 +335,28 @@ function Index() {
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-4.5 text-xs leading-relaxed text-white/70">
+            <h3 className="font-display text-sm uppercase tracking-[0.2em] text-white/90">Páginas amigas</h3>
+            <div className="mt-3 flex flex-wrap gap-3">
+              <a
+                href="https://comparadolar.ar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-white/80 transition-colors hover:border-accent-1/50 hover:text-accent-1"
+              >
+                ComparaDolar
+              </a>
+              <a
+                href="https://comparatasas.ar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-white/80 transition-colors hover:border-accent-1/50 hover:text-accent-1"
+              >
+                ComparaTasas
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-4.5 text-xs leading-relaxed text-white/70">
             <strong className="font-semibold text-white">Descargo de responsabilidad:</strong>{" "}
             El propósito de este proyecto es difundir e informar sobre distintas opciones para implementar una tienda on-line o ecommerce en Argentina pero no pretende en ningún caso asesorar o recomendar sobre las alternativas representadas.
           </div>
