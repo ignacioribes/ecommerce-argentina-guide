@@ -1,6 +1,6 @@
 # Comparativa de plataformas de e-commerce
 
-> Última actualización: julio 2026 · Precios de Argentina (Tiendanube y Empretienda en ARS, Shopify en USD)
+> Última actualización: agosto 2026 · Precios de Argentina (Tiendanube y Empretienda en ARS, Shopify en USD)
 
 ## 🔑 Puntos clave
 

@@ -220,5 +220,5 @@ export const notes: string[] = [
   "Shopify Payments no está disponible en Argentina: toda tienda Shopify necesita una pasarela externa (Mercado Pago, Mobbex, Talo, etc.) y paga además la comisión de Shopify por pasarela externa (2% en Basic hasta 0,2% en Plus).",
   "Shopify no tiene plan gratis; ofrece prueba de 3 días y luego US$1/mes durante 3 meses antes de pasar al precio de lista.",
   "Empretienda tiene un único plan (todo incluido) sin escalones de funcionalidades, a diferencia de Tiendanube y Shopify.",
-  "Última actualización: julio 2026.",
+  "Última actualización: agosto 2026.",
 ];
