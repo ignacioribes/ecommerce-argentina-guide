@@ -195,63 +195,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Novedades */}
-      <section id="novedades" className="mx-auto max-w-7xl px-6 pb-20">
-        <div className="flex items-center gap-3">
-          <span className="h-2 w-2 rounded-full bg-accent-1" />
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-white">Novedades</h2>
-        </div>
-        <p className="mt-2 text-ink-soft mb-8">Cambios y actualizaciones de las plataformas, al día.</p>
-
-        <div className="grid gap-4">
-          {news.map((item) => (
-            <article
-              key={item.id}
-              className="rounded-2xl border border-hairline bg-card p-6 md:p-8 transition-colors hover:border-white/20"
-            >
-              <div className="flex flex-wrap items-center gap-3 mb-3">
-                <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-accent-1">
-                  <Newspaper className="h-4 w-4" />
-                  Novedad
-                </span>
-                <span className="font-mono text-xs text-ink-soft/80">{item.date}</span>
-              </div>
-              <h3 className="font-display text-2xl font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 max-w-3xl text-sm text-ink-soft leading-relaxed">{item.body}</p>
-              {item.table && (
-                <div className="mt-6 max-w-md overflow-hidden rounded-xl border border-white/15">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="bg-surface-2/80">
-                        {item.table.headers.map((h) => (
-                          <th
-                            key={h}
-                            className="text-left px-4 py-2.5 font-mono text-[11px] uppercase tracking-widest text-accent-1 font-bold"
-                          >
-                            {h}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {item.table.rows.map((row, i) => (
-                        <tr key={i} className={i % 2 === 1 ? "bg-surface/40" : "bg-card/40"}>
-                          {row.map((cell, j) => (
-                            <td key={j} className="px-4 py-2.5 text-ink-soft whitespace-nowrap">
-                              {cell}
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </article>
-          ))}
-        </div>
-      </section>
-
       {/* Comparison */}
       <section id="comparativa" className="mx-auto max-w-7xl px-6 pb-20">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
@@ -369,6 +312,63 @@ function Index() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Novedades */}
+      <section id="novedades" className="mx-auto max-w-7xl px-6 pb-20">
+        <div className="flex items-center gap-3">
+          <span className="h-2 w-2 rounded-full bg-accent-1" />
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-white">Novedades</h2>
+        </div>
+        <p className="mt-2 text-ink-soft mb-8">Cambios y actualizaciones de las plataformas, al día.</p>
+
+        <div className="grid gap-4">
+          {news.map((item) => (
+            <article
+              key={item.id}
+              className="rounded-2xl border border-hairline bg-card p-6 md:p-8 transition-colors hover:border-white/20"
+            >
+              <div className="flex flex-wrap items-center gap-3 mb-3">
+                <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-accent-1">
+                  <Newspaper className="h-4 w-4" />
+                  Novedad
+                </span>
+                <span className="font-mono text-xs text-ink-soft/80">{item.date}</span>
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-white">{item.title}</h3>
+              <p className="mt-3 max-w-3xl text-sm text-ink-soft leading-relaxed">{item.body}</p>
+              {item.table && (
+                <div className="mt-6 max-w-md overflow-hidden rounded-xl border border-white/15">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-surface-2/80">
+                        {item.table.headers.map((h) => (
+                          <th
+                            key={h}
+                            className="text-left px-4 py-2.5 font-mono text-[11px] uppercase tracking-widest text-accent-1 font-bold"
+                          >
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {item.table.rows.map((row, i) => (
+                        <tr key={i} className={i % 2 === 1 ? "bg-surface/40" : "bg-card/40"}>
+                          {row.map((cell, j) => (
+                            <td key={j} className="px-4 py-2.5 text-ink-soft whitespace-nowrap">
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </article>
+          ))}
         </div>
       </section>
 
