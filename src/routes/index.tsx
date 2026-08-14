@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import React, { Fragment, useMemo, useState } from "react";
-import { Table, Calculator, Github, DollarSign, Percent, Package } from "lucide-react";
+import { Table, Calculator, Github, DollarSign, Percent, Package, Newspaper } from "lucide-react";
 import { platforms, rows, notes } from "@/data/platforms";
+import { news } from "@/data/news";
 import { Simulator } from "@/components/Simulator";
 
 export const Route = createFileRoute("/")({
@@ -113,6 +114,7 @@ function Index() {
             </div>
           </div>
           <div className="hidden sm:flex items-center gap-6 text-sm text-ink-soft">
+            <a href="#novedades" className="hover:text-white transition-colors">Novedades</a>
             <a href="#comparativa" className="hover:text-white transition-colors">Comparativa</a>
             <a href="#simulador" onClick={(event) => handleOpenSimulator(event)} className="hover:text-white transition-colors">Simulador</a>
             <a href="#notas" className="hover:text-white transition-colors">Notas</a>
@@ -188,6 +190,63 @@ function Index() {
               </h2>
               <p className="mt-2 text-sm text-ink-soft leading-relaxed">{p.tagline}</p>
               <div className={`mt-6 h-1 w-12 rounded-full ${accentClass[p.accent]}`} />
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Novedades */}
+      <section id="novedades" className="mx-auto max-w-7xl px-6 pb-20">
+        <div className="flex items-center gap-3">
+          <span className="h-2 w-2 rounded-full bg-accent-1" />
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-white">Novedades</h2>
+        </div>
+        <p className="mt-2 text-ink-soft mb-8">Cambios y actualizaciones de las plataformas, al día.</p>
+
+        <div className="grid gap-4">
+          {news.map((item) => (
+            <article
+              key={item.id}
+              className="rounded-2xl border border-hairline bg-card p-6 md:p-8 transition-colors hover:border-white/20"
+            >
+              <div className="flex flex-wrap items-center gap-3 mb-3">
+                <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-accent-1">
+                  <Newspaper className="h-4 w-4" />
+                  Novedad
+                </span>
+                <span className="font-mono text-xs text-ink-soft/80">{item.date}</span>
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-white">{item.title}</h3>
+              <p className="mt-3 max-w-3xl text-sm text-ink-soft leading-relaxed">{item.body}</p>
+              {item.table && (
+                <div className="mt-6 max-w-md overflow-hidden rounded-xl border border-white/15">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-surface-2/80">
+                        {item.table.headers.map((h) => (
+                          <th
+                            key={h}
+                            className="text-left px-4 py-2.5 font-mono text-[11px] uppercase tracking-widest text-accent-1 font-bold"
+                          >
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {item.table.rows.map((row, i) => (
+                        <tr key={i} className={i % 2 === 1 ? "bg-surface/40" : "bg-card/40"}>
+                          {row.map((cell, j) => (
+                            <td key={j} className="px-4 py-2.5 text-ink-soft whitespace-nowrap">
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </article>
           ))}
         </div>
