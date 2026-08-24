@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import React, { Fragment, useMemo, useState } from "react";
-import { Table, Calculator, Github, DollarSign, Percent, Package, Newspaper } from "lucide-react";
+import { Table, Calculator, Github, DollarSign, Percent, Package, Newspaper, MessageSquarePlus } from "lucide-react";
 import { platforms, rows, notes } from "@/data/platforms";
 import { news } from "@/data/news";
 import { Simulator } from "@/components/Simulator";
+import { SuggestionsDialog } from "@/components/SuggestionsDialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -82,6 +83,7 @@ function Index() {
 
   const [query, setQuery] = useState("");
   const [isSimulatorOpen, setIsSimulatorOpen] = useState(false);
+  const [isSuggestionsOpen, setIsSuggestionsOpen] = useState(false);
   const q = query.trim().toLowerCase();
 
   function handleOpenSimulator(event?: React.MouseEvent<HTMLAnchorElement>) {
@@ -118,6 +120,13 @@ function Index() {
             <a href="#comparativa" className="hover:text-white transition-colors">Comparativa</a>
             <a href="#simulador" onClick={(event) => handleOpenSimulator(event)} className="hover:text-white transition-colors">Simulador</a>
             <a href="#notas" className="hover:text-white transition-colors">Notas</a>
+            <button
+              onClick={() => setIsSuggestionsOpen(true)}
+              className="inline-flex items-center gap-1.5 text-white/80 hover:text-white transition-colors cursor-pointer"
+            >
+              <MessageSquarePlus className="h-4 w-4" />
+              <span>Sugerencias</span>
+            </button>
             <a
               href="https://github.com/ignacioribes/ecommerce-argentina-guide"
               target="_blank"
@@ -297,6 +306,9 @@ function Index() {
       {/* Simulator (Desplegable) */}
       <Simulator isOpen={isSimulatorOpen} onOpenChange={setIsSimulatorOpen} />
 
+      {/* Sugerencias */}
+      <SuggestionsDialog isOpen={isSuggestionsOpen} onOpenChange={setIsSuggestionsOpen} />
+
       {/* Notes */}
       <section id="notas" className="mx-auto max-w-7xl px-6 pb-24">
         <div className="rounded-3xl border border-hairline bg-surface-2/80 p-8 md:p-12 backdrop-blur-sm">
@@ -388,6 +400,14 @@ function Index() {
                 <Github className="h-4 w-4" />
                 <span>Colaborar en GitHub</span>
               </a>
+              <span className="text-white/20">•</span>
+              <button
+                onClick={() => setIsSuggestionsOpen(true)}
+                className="inline-flex items-center gap-1.5 text-white/80 hover:text-accent-1 transition-colors font-medium cursor-pointer"
+              >
+                <MessageSquarePlus className="h-4 w-4" />
+                <span>Sugerencias</span>
+              </button>
               <span className="text-white/20">•</span>
               <p className="font-mono text-xs text-white/50 shrink-0">Actualizado · agosto 2026</p>
             </div>
