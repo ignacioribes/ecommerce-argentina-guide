@@ -27,7 +27,7 @@ export const platforms: Platform[] = [
   {
     id: "empretienda",
     name: "Empretienda",
-    tagline: "Plataforma argentina, +470.000 tiendas creadas",
+    tagline: "Plataforma argentina, +390.000 emprendedores",
     origin: "Argentina",
     accent: "accent-3",
     url: "https://www.empretienda.com/#pricing",
@@ -47,23 +47,23 @@ export const rows: Row[] = [
     values: {
       tiendanube: "Sí (Inicial) — productos, ventas y visitas ilimitadas",
       shopify: "No — prueba de 3 días, luego US$1/mes los primeros 3 meses",
-      empretienda: "No — prueba de 30 días gratis, sin configurar medios de pago",
+      empretienda: "No — prueba de 15 días gratis con todas las funciones",
     },
   },
   {
     group: "Precios",
     label: "Plan de entrada pago",
     values: {
-      tiendanube: "Esencial: $26.999 ARS/mes (mensual) / $20.249 ARS/mes (anual)",
+      tiendanube: "Esencial: $27.999 ARS/mes (mensual) / $20.999 ARS/mes (anual)",
       shopify: "Basic: US$19/mes (anual) / US$25/mes (mensual)",
-      empretienda: "Único plan: $9.490 ARS/mes",
+      empretienda: "Único plan: $10.490 ARS/mes",
     },
   },
   {
     group: "Precios",
     label: "Plan intermedio",
     values: {
-      tiendanube: "Impulso: $78.999 ARS/mes",
+      tiendanube: "Impulso: $79.999 ARS/mes (mensual) / $59.999 ARS/mes (anual)",
       shopify: "Grow: US$49/mes (anual) / US$65/mes (mensual)",
       empretienda: "No tiene niveles — plan único con todo incluido",
     },
@@ -72,7 +72,7 @@ export const rows: Row[] = [
     group: "Precios",
     label: "Plan avanzado",
     values: {
-      tiendanube: "Escala: $234.999 ARS/mes",
+      tiendanube: "Escala: $244.999 ARS/mes (mensual) / $183.749 ARS/mes (anual)",
       shopify: "Advanced: US$299/mes (anual) / US$399/mes (mensual)",
       empretienda: "No tiene niveles — plan único con todo incluido",
     },
@@ -92,7 +92,7 @@ export const rows: Row[] = [
     values: {
       tiendanube: "Gratis con Pago Nube en todos los planes (sin comisión por transacción)",
       shopify: "⚠️ Shopify Payments no está disponible en Argentina — siempre se usa pasarela externa",
-      empretienda: "Sin procesador propio: usa Mercado Pago / Ualá Bis sin comisión adicional de Empretienda",
+      empretienda: "Sin procesador propio: usa Mercado Pago / Ualá Bis / Go Cuotas sin comisión adicional de Empretienda",
     },
   },
   {
@@ -101,7 +101,7 @@ export const rows: Row[] = [
     values: {
       tiendanube: "2% (Esencial) → 1% (Impulso) → 0,7% (Escala)",
       shopify: "2% (Basic) → 1% (Grow) → 0,6% (Advanced) → 0,2% (Plus) — se suma a la comisión del procesador",
-      empretienda: "Sin comisión de plataforma (Mercado Pago, Ualá Bis, efectivo, transferencia)",
+      empretienda: "Sin comisión de plataforma (Mercado Pago, Ualá Bis, Go Cuotas, efectivo, transferencia)",
     },
   },
   {
@@ -117,7 +117,7 @@ export const rows: Row[] = [
     group: "Comisiones",
     label: "Plazo de liberación del dinero",
     values: {
-      tiendanube: "1, 7 o 14 días hábiles con Pago Nube (a elegir). +24 hs hábiles adicionales para acreditar en cuenta bancaria/CVU",
+      tiendanube: "1, 7, 14 o 30 días con Pago Nube (a elegir). +24 hs hábiles adicionales para acreditar en cuenta bancaria/CVU",
       shopify: "Sin solución propia en AR. Con Mercado Pago: desde inmediato hasta 35 días (según tarifa). Con Talo: liquidación instantánea",
       empretienda: "Depende del procesador elegido: MP desde inmediato hasta 35 días; Ualá Bis según sus condiciones",
     },
@@ -126,7 +126,7 @@ export const rows: Row[] = [
     group: "Comisiones",
     label: "Costo de liberación (tarjeta / MODO)",
     values: {
-      tiendanube: "1 día: 6,40% → 6,09% → 5,89% → 5,59% + IVA | 7 días: 4,45% → 4,39% → 4,19% → 3,89% + IVA | 14 días: 3,50% → 3,49% → 3,29% → 2,99% + IVA (Inicial → Esencial → Impulso → Escala)",
+      tiendanube: "1 día: 6,40% → 6,09% → 5,89% → 5,59% + IVA | 7 días: 4,45% → 4,39% → 4,19% → 3,89% + IVA | 14 días: 3,50% → 3,49% → 3,29% → 2,99% + IVA | 30 días: 2,99% → 2,97% → 2,85% → 2,65% + IVA (Inicial → Esencial → Impulso → Escala)",
       shopify: "No aplica (Shopify Payments no disponible en AR). Ejemplo con Mercado Pago: inmediato ~6,29% + IVA; 35 días ~1,49% + IVA",
       empretienda: "Ídem Shopify: depende de la pasarela contratada, no de Empretienda",
     },
@@ -144,16 +144,16 @@ export const rows: Row[] = [
     group: "Producto",
     label: "Soporte",
     values: {
-      tiendanube: "Email desde Esencial, +WhatsApp desde Impulso",
+      tiendanube: "Email y Messenger desde Inicial, +WhatsApp desde Impulso, +Videollamada en Evolución",
       shopify: "Chat en vivo 24/7 en todos los planes; prioritario en Plus",
-      empretienda: "Atención humana vía email (se presentan como «anti-bots»)",
+      empretienda: "Atención humana vía email / contacto (lunes a sábados y feriados de 9 a 18 hs)",
     },
   },
   {
     group: "Producto",
     label: "Diseño y personalización",
     values: {
-      tiendanube: "+65 diseños; HTML/CSS/JS libre en todos los planes pagos",
+      tiendanube: "+65 diseños desde Esencial; HTML/CSS/JS libre desde Impulso",
       shopify: "Temas incluidos; personalización de checkout limitada salvo en Plus",
       empretienda: "Plantillas editables con secciones, CSS y HTML",
     },
@@ -171,16 +171,16 @@ export const rows: Row[] = [
     group: "Producto",
     label: "Apps e integraciones",
     values: {
-      tiendanube: "Tienda de apps propia, con tarifas especiales según plan",
+      tiendanube: "Tienda de apps propia, con tarifas especiales en Evolución",
       shopify: "App Store de Shopify (miles de apps)",
-      empretienda: "Google Shopping, Facebook/WhatsApp, Analytics, Píxel",
+      empretienda: "Google Shopping, Facebook/WhatsApp, sistemas de facturación, Email Marketing",
     },
   },
   {
     group: "Producto",
     label: "IA integrada",
     values: {
-      tiendanube: "Recursos de IA con límite mensual (30 / 150 / ilimitado)",
+      tiendanube: "Recursos de IA para productos (30 / 150 / ilimitado desde Esencial) + Chat Nube por WhatsApp (pago por conversación)",
       shopify: "Sidekick (asistente IA) + «millones de tokens» en todos los planes",
       empretienda: "No ofrece",
     },
@@ -216,8 +216,8 @@ export const rows: Row[] = [
 
 export const notes: string[] = [
   "Los precios de Tiendanube y Empretienda están en pesos argentinos; los de Shopify están en dólares y son los publicados en la versión Argentina del sitio (shopify.com/ar).",
-  "Tiendanube cobra una comisión por «liberación del dinero» con Pago Nube separada de la comisión por transacción: va desde 0,85% + IVA (transferencia en Escala) hasta 6,40% + IVA (tarjeta a 1 día en Inicial), según el plazo elegido y el plan.",
+  "Tiendanube cobra una comisión por «liberación del dinero» con Pago Nube separada de la comisión por transacción: va desde 0,85% + IVA (transferencia en Escala) o 2,65% + IVA (tarjeta a 30 días en Escala) hasta 6,40% + IVA (tarjeta a 1 día en Inicial), según el plazo elegido y el plan.",
   "Shopify Payments no está disponible en Argentina: toda tienda Shopify necesita una pasarela externa (Mercado Pago, Mobbex, Talo, etc.) y paga además la comisión de Shopify por pasarela externa (2% en Basic hasta 0,2% en Plus).",
   "Shopify no tiene plan gratis; ofrece prueba de 3 días y luego US$1/mes durante 3 meses antes de pasar al precio de lista.",
-  "Empretienda tiene un único plan (todo incluido) sin escalones de funcionalidades, a diferencia de Tiendanube y Shopify.",
+  "Empretienda tiene un único plan ($10.490 ARS/mes, con 15 días de prueba gratis) con todo incluido y sin escalones de funcionalidades, a diferencia de Tiendanube y Shopify.",
 ];

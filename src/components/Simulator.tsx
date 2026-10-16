@@ -147,6 +147,7 @@ const TIENDA_NUBE_RELEASE_FEES = [
   { days: 1, label: "1 día", lowerRate: 0.0559, upperRate: 0.064 },
   { days: 7, label: "7 días", lowerRate: 0.0389, upperRate: 0.0445 },
   { days: 14, label: "14 días", lowerRate: 0.0299, upperRate: 0.035 },
+  { days: 30, label: "30 días", lowerRate: 0.0265, upperRate: 0.0299 },
 ] as const;
 
 const MERCADOPAGO_RELEASE_FEES = [

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Compará Tiendanube, Shopify y Empretienda: precios, comisiones, soporte, IA, envíos y más. Guía actualizada a agosto 2026.",
+          "Compará Tiendanube, Shopify y Empretienda: precios, comisiones, soporte, IA, envíos y más. Guía actualizada a octubre 2026.",
       },
       { property: "og:title", content: "ComparaTiendas.com.ar - Comparativa e-commerce en Argentina" },
       {
@@ -158,7 +158,7 @@ function Index() {
               <Github className="h-4 w-4" />
               <span>GitHub</span>
             </a>
-            <span className="font-mono text-xs bg-surface-2 border border-hairline px-2.5 py-1 rounded-full text-white/70">ago 2026</span>
+            <span className="font-mono text-xs bg-surface-2 border border-hairline px-2.5 py-1 rounded-full text-white/70">oct 2026</span>
           </div>
         </div>
       </header>
@@ -450,7 +450,7 @@ function Index() {
                 <span>Grupo WhatsApp</span>
               </a>
               <span className="text-white/20">•</span>
-              <p className="font-mono text-xs text-white/50 shrink-0">Actualizado · agosto 2026</p>
+              <p className="font-mono text-xs text-white/50 shrink-0">Actualizado · octubre 2026</p>
             </div>
           </div>
 

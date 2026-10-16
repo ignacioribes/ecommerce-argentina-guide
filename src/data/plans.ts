@@ -25,8 +25,8 @@ export const platformPlans: PlatformPlans[] = [
       {
         id: "tn-esencial",
         name: "Esencial",
-        monthlyMonthly: 26999,
-        monthlyAnnual: 20249,
+        monthlyMonthly: 27999,
+        monthlyAnnual: 20999,
         currency: "ARS",
         externalFee: 0.02,
         ownFee: 0,
@@ -35,7 +35,8 @@ export const platformPlans: PlatformPlans[] = [
       {
         id: "tn-impulso",
         name: "Impulso",
-        monthlyMonthly: 78999,
+        monthlyMonthly: 79999,
+        monthlyAnnual: 59999,
         currency: "ARS",
         externalFee: 0.01,
         ownFee: 0,
@@ -43,7 +44,8 @@ export const platformPlans: PlatformPlans[] = [
       {
         id: "tn-escala",
         name: "Escala",
-        monthlyMonthly: 234999,
+        monthlyMonthly: 244999,
+        monthlyAnnual: 183749,
         currency: "ARS",
         externalFee: 0.007,
         ownFee: 0,
@@ -88,7 +90,7 @@ export const platformPlans: PlatformPlans[] = [
       {
         id: "emp-unico",
         name: "Plan único",
-        monthlyMonthly: 9490,
+        monthlyMonthly: 10490,
         currency: "ARS",
         externalFee: 0,
         ownFee: 0,
